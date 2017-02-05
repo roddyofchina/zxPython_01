@@ -51,9 +51,14 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"
+
+AUTHENTICATION_BACKENDS= (
+    'users.views.CustomBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,3 +155,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '923401910@qq.com'
+EMAIL_HOST_PASSWORD = 'zxatqpegyigbbbib'
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL = '923401910@qq.com'
+#SESSION_COOKIE_AGE = 60*180
