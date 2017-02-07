@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
+    'pure_pagination',
 ]
 
 AUTH_USER_MODEL = "users.UserProfile"
@@ -84,6 +85,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+
             ],
         },
     },
@@ -164,3 +167,8 @@ EMAIL_HOST_PASSWORD = 'zxatqpegyigbbbib'
 EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL = '923401910@qq.com'
 #SESSION_COOKIE_AGE = 60*180
+
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+

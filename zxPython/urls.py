@@ -1,3 +1,4 @@
+#coding:utf8
 """zxPython URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,6 +23,8 @@ from django.views.generic import TemplateView
 import xadmin
 from users.views import LoginView,RegisterView,ActiveUserView,ForgetView,ResetView,ModifyPwdView
 from organization.views import OrgListView
+from django.views.static import serve
+from zxPython.settings import MEDIA_ROOT
 
 
 urlpatterns = [
@@ -35,6 +38,9 @@ urlpatterns = [
     url(r'^reset/(?P<reset_code>.*)/$',ResetView.as_view(),name='reset_code'),
     url(r'^modifypwd/$',ModifyPwdView.as_view(), name="modify_pwd"),
 
-    url(r'^org_list/$',OrgListView.as_view(),name='org_list')
+    url(r'^org_list/$',OrgListView.as_view(),name='org_list'),
+
+    #配置上传文件图片的访问处理函数
+    url(r'^media/(?P<path>.*)$',serve,{"document_root":MEDIA_ROOT}),
 
 ]
