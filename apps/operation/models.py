@@ -20,6 +20,8 @@ class UserAsk(models.Model):
         verbose_name = u"用户咨询"
         verbose_name_plural = verbose_name
 
+
+
 class CourseComments(models.Model):
 
     '''
